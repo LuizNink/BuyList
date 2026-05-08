@@ -4,28 +4,46 @@
     padding: 0;
 }
 
+/*CABEÇALHO*/
 header{
     display: flex;
     justify-content: space-between;
     padding: 1rem 31.25rem 1rem 9.3rem;
+    font-size: 0.9rem;
     background-color: gray;
 }
 
+/*INPUTS*/
+.secao-1{
+    margin-top: 6.25rem;
+    padding-left: 9.3rem;
+}
 
+input{
+    margin-right: 1.25rem;
+    height: 2.2rem;
+    padding-left: 0.75rem;
+    font-size: 1rem;
+}
 
+.input-nome{
+    width: 15rem
+}
 
+.input-number{
+    width: 8rem
+}
 
+.button-adicionar{
+    height: 2.46rem;
+    width: 5.3rem;   
+}
 
-
-
-
-
-
-
-
-
-
-
+.linha-inputs{
+    margin-left: 8.8rem;
+    margin-top: 0.6rem;
+    width: 45rem
+}
 
 
 
