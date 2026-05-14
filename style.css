@@ -57,6 +57,7 @@ main > h1{
 
 #lista-de-compras{
     margin-left: 9.3rem;
+    list-style: none;
 }
 
 
