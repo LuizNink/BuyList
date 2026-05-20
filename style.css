@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 h1{
     font-size: 2rem;
 }
@@ -51,6 +57,10 @@ input{
 
 
 /*LISTA DE COMPRA*/
+main{
+    margin-bottom: 120px;
+}
+
 main > h1{
     margin: 6rem 0 3rem 9.3rem;
 }
@@ -83,14 +93,14 @@ main > h1{
     flex-direction: column;
 }
 
-#botao-concluir{
+.botao-concluir{
     width: 80px;
     height: 35px;
     padding: 5px;
     margin-bottom: 20px;
 }
 
-#botao-excluir{
+.botao-excluir{
     width: 80px;
     height: 35px;
     padding: 5px;
@@ -98,7 +108,12 @@ main > h1{
 
 
 /*FOOTER*/
-
+#footer{
+    margin-top: auto;
+    background-color: gray;
+    padding: 8px;
+    color: gray;
+}
 
 
 
