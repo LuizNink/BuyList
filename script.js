@@ -5,6 +5,8 @@ const quantidade = document.getElementById('input-quantidade')
 const botaoAdiconar = document.getElementById('botao-adicionar')
 const listaDeCompras = document.getElementById('lista-de-compras')
 
+let totalGeral = 0
+
 botaoAdiconar.addEventListener('click', () => {
     let nomeDigitado = nome.value
     let precoDigitado = Number(preco.value)
@@ -33,7 +35,13 @@ botaoAdiconar.addEventListener('click', () => {
         </div>
     </div>`
     
-    
+    //TOTAL
+    if(precoDigitado && quantidadeDigitado) {
+        let subtotal = precoDigitado * quantidadeDigitado
+        totalGeral += subtotal
+        total.innerText = `Total: ${totalGeral}`
+    }
+
     listaDeCompras.appendChild(li)
     nome.value = ''
     preco.value = ''
