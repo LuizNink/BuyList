@@ -64,4 +64,18 @@ botaoAdiconar.addEventListener('click', () => {
     nome.value = ''
     preco.value = ''
     quantidade.value = ''
+
+
+    //BOTÃO CONCLUIR
+    let botaoConcluir = li.querySelector('.botao-concluir')
+    botaoConcluir.addEventListener('click', () => {
+        listaDeCompras.appendChild(li)
+    })
+
+
+    //BOTÃO EXCLUIR
+    let botaoExcluir = li.querySelector('.botao-excluir')
+    botaoExcluir.addEventListener('click', () => {
+        listaDeCompras.removeChild(li)
+    })
 })
