@@ -26,7 +26,7 @@ botaoAdiconar.addEventListener('click', () => {
     `<div id="card-lista-de-compras">
         <div>
             <h2 id="titulo-lista">Produto: ${nomeDigitado}</h2>
-            <p id="paragrafo-lista">Preço: R$ ${precoDigitado}</p>
+            <p id="paragrafo-lista">Preço: R$ ${precoDigitado.toFixed(2)}</p>
             <p>Quantidade: ${quantidadeDigitado}</p>
         </div>
         <div id="botoes-card-lista">
@@ -41,19 +41,6 @@ botaoAdiconar.addEventListener('click', () => {
         totalGeral += subtotal
     }
     if(precoDigitado && quantidadeDigitado === 0) {
-        li.innerHTML = 
-    `<div id="card-lista-de-compras">
-        <div>
-            <h2 id="titulo-lista">Produto: ${nomeDigitado}</h2>
-            <p id="paragrafo-lista">Preço: R$ ${precoDigitado}</p>
-            <p>Quantidade: 1</p>
-        </div>
-        <div id="botoes-card-lista">
-            <button class="botao-concluir">Concluir</button> 
-            <button class="botao-excluir">Excluir</button>
-        </div>
-    </div>`
-
         let subtotal = precoDigitado * 1
         totalGeral += subtotal
     }
