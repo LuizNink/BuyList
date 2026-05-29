@@ -23,13 +23,13 @@ botaoAdiconar.addEventListener('click', () => {
     let li = document.createElement('li')
     
     li.innerHTML = 
-    `<div id="card-lista-de-compras">
+    `<div class="card-lista-de-compras">
         <div>
-            <h2 id="titulo-lista">Produto: ${nomeDigitado}</h2>
-            <p id="paragrafo-lista">Preço: R$ ${precoDigitado.toFixed(2)}</p>
+            <h2 class="titulo-lista">Produto: ${nomeDigitado}</h2>
+            <p class="paragrafo-lista">Preço: R$ ${precoDigitado.toFixed(2)}</p>
             <p>Quantidade: ${quantidadeDigitado}</p>
         </div>
-        <div id="botoes-card-lista">
+        <div class="botoes-card-lista">
             <button class="botao-concluir">Concluir</button> 
             <button class="botao-excluir">Excluir</button>
         </div>

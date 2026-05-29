@@ -1,5 +1,5 @@
 *{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -29,6 +29,7 @@ header{
 .secao-1{
     margin-top: 6.25rem;
     padding-left: 9.3rem;
+    display: flex;
 }
 
 input{
@@ -51,14 +52,14 @@ input{
 }
 
 #botao-adicionar{
-    height: 2.30rem;
-    padding: 0.5rem;
-    border-radius: 0.4rem;
+    height: 2.3rem;
+    border-radius: 0.3rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    font-size: 12px;
     border: 1px solid rgba(0, 0, 0, 0.089);
     background-color: #F69F00;
     color: rgba(0, 0, 0, 0.801);
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -85,25 +86,27 @@ main > h1{
     list-style: none;
 }
 
-#card-lista-de-compras{
-    border: 1px solid gray;
+.card-lista-de-compras{
+    border: 1px solid #F69F00;
+    border-radius: 0.7rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: 31.25rem;
     padding: 1.5rem 2rem 2rem 1.5rem;
     margin-bottom: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.199);
 }
 
-#titulo-lista{
-    margin-bottom: 10px;
+.titulo-lista{
+    margin-bottom: 15px;
 }
 
-#paragrafo-lista{
-    margin-bottom: 5px;
+.paragrafo-lista{
+    margin-bottom: 3px;
 }
 
-#botoes-card-lista{
+.botoes-card-lista{
     display: flex;
     flex-direction: column;
 }
