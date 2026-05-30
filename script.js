@@ -10,7 +10,7 @@ let totalGeral = 0
 botaoAdiconar.addEventListener('click', () => {
     let nomeDigitado = nome.value
     let precoDigitado = Number(preco.value)
-    let quantidadeDigitado = Number(quantidade.value)
+    let quantidadeDigitado = Number(quantidade.value) || 1
     
     if(nomeDigitado.trim() === '') {
         return alert('Preencha o nome antes de adicionar')
@@ -56,6 +56,9 @@ botaoAdiconar.addEventListener('click', () => {
     //BOTÃO CONCLUIR
     let botaoConcluir = li.querySelector('.botao-concluir')
     botaoConcluir.addEventListener('click', () => {
+        let card = li.querySelector('.card-lista-de-compras')
+        
+        card.classList.toggle('concluido')
         listaDeCompras.appendChild(li)
     })
 

@@ -78,7 +78,7 @@ main{
 }
 
 main > h1{
-    margin: 6rem 0 3rem 9.3rem;
+    margin: 5rem 0 2rem 9.3rem;
 }
 
 #lista-de-compras{
@@ -99,11 +99,7 @@ main > h1{
 }
 
 .titulo-lista{
-    margin-bottom: 15px;
-}
-
-.paragrafo-lista{
-    margin-bottom: 3px;
+    margin-bottom: 12px;
 }
 
 .botoes-card-lista{
@@ -112,25 +108,44 @@ main > h1{
 }
 
 .botao-concluir{
+    background-color: #F69F00;
+    color: #00660C;
+    border: 1px solid #00660C;
+    border-radius: 5px;
     width: 80px;
     height: 35px;
     padding: 5px;
     margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.concluido{
+    opacity: 0.8;
+    box-shadow: 0 0 15px #00921194;
+}
+.concluido h2, .concluido p{
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.801);
 }
 
 .botao-excluir{
+    background-color: #F69F00;
+    color: #780000;
+    border: 1px solid #780000;
+    border-radius: 5px;
     width: 80px;
     height: 35px;
     padding: 5px;
+    cursor: pointer;
 }
 
 
 /*FOOTER*/
 #footer{
     margin-top: auto;
-    background-color: gray;
+    background-color: #F69F00;
     padding: 8px;
-    color: gray;
+    color: #F69F00;
 }
 
 
