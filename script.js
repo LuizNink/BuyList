@@ -6,6 +6,75 @@ const botaoAdiconar = document.getElementById('botao-adicionar')
 const listaDeCompras = document.getElementById('lista-de-compras')
 
 let totalGeral = 0
+let produtos = JSON.parse(localStorage.getItem('produtos')) || []
+
+produtos.sort((a, b) => {
+    if (a.concluido && !b.concluido) return 1
+    if (!a.concluido && b.concluido) return -1
+    return 0
+})
+
+produtos.forEach(produto => {
+    criarCard(produto)
+})
+
+produtos.forEach(produto => {
+    totalGeral += produto.preco * produto.quantidade
+})
+
+total.innerText = `Total: R$ ${totalGeral.toFixed(2)}`
+
+function criarCard(produto) {
+    let li = document.createElement('li')
+    
+    li.innerHTML = 
+    `<div class="card-lista-de-compras">
+        <div>
+            <h2 class="titulo-lista">Produto: ${produto.nome}</h2>
+            <p class="paragrafo-lista">Preço: R$ ${produto.preco.toFixed(2)}</p>
+            <p>Quantidade: ${produto.quantidade}</p>
+        </div>
+        <div class="botoes-card-lista">
+            <button class="botao-concluir">Concluir</button> 
+            <button class="botao-excluir">Excluir</button>
+        </div>
+    </div>`
+
+    let card = li.querySelector('.card-lista-de-compras')
+    if(produto.concluido) {
+        card.classList.add('concluido')
+    }
+
+    listaDeCompras.appendChild(li)
+
+    //BOTÃO CONCLUIR
+    let botaoConcluir = li.querySelector('.botao-concluir')
+    botaoConcluir.addEventListener('click', () => {
+        produto.concluido = !produto.concluido
+
+        localStorage.setItem(
+            'produtos',
+            JSON.stringify(produtos)
+        )
+        
+        card.classList.toggle('concluido')
+        listaDeCompras.appendChild(li)
+    })
+
+
+    //BOTÃO EXCLUIR
+    let botaoExcluir = li.querySelector('.botao-excluir')
+    botaoExcluir.addEventListener('click', () => {
+        produtos = produtos.filter(p => p.nome !== produto.nome)
+        
+        localStorage.setItem(
+            'produtos',
+            JSON.stringify(produtos)
+        )
+
+        listaDeCompras.removeChild(li)
+    })
+}
 
 botaoAdiconar.addEventListener('click', () => {
     let nomeDigitado = nome.value
@@ -19,21 +88,21 @@ botaoAdiconar.addEventListener('click', () => {
         preco.value = 0
         quantidade.value = 0
     }
-    
-    let li = document.createElement('li')
-    
-    li.innerHTML = 
-    `<div class="card-lista-de-compras">
-        <div>
-            <h2 class="titulo-lista">Produto: ${nomeDigitado}</h2>
-            <p class="paragrafo-lista">Preço: R$ ${precoDigitado.toFixed(2)}</p>
-            <p>Quantidade: ${quantidadeDigitado}</p>
-        </div>
-        <div class="botoes-card-lista">
-            <button class="botao-concluir">Concluir</button> 
-            <button class="botao-excluir">Excluir</button>
-        </div>
-    </div>`
+
+    produtos.push({
+        nome: nomeDigitado,
+        preco: precoDigitado,
+        quantidade: quantidadeDigitado,
+        concluido: false
+    })
+
+    criarCard(produtos[produtos.length - 1])
+
+    localStorage.setItem(
+        'produtos',
+        JSON.stringify(produtos)
+    )
+
     
     //TOTAL
     if(precoDigitado && quantidadeDigitado) {
@@ -47,25 +116,7 @@ botaoAdiconar.addEventListener('click', () => {
 
     total.innerText = `Total: R$ ${totalGeral.toFixed(2)}`
 
-    listaDeCompras.appendChild(li)
     nome.value = ''
     preco.value = ''
     quantidade.value = ''
-
-
-    //BOTÃO CONCLUIR
-    let botaoConcluir = li.querySelector('.botao-concluir')
-    botaoConcluir.addEventListener('click', () => {
-        let card = li.querySelector('.card-lista-de-compras')
-        
-        card.classList.toggle('concluido')
-        listaDeCompras.appendChild(li)
-    })
-
-
-    //BOTÃO EXCLUIR
-    let botaoExcluir = li.querySelector('.botao-excluir')
-    botaoExcluir.addEventListener('click', () => {
-        listaDeCompras.removeChild(li)
-    })
 })
