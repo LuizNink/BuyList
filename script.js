@@ -24,6 +24,8 @@ produtos.forEach(produto => {
 
 total.innerText = `Total: R$ ${totalGeral.toFixed(2)}`
 
+
+//CARD DA LISTA DE COMPRAS
 function criarCard(produto) {
     let li = document.createElement('li')
     
@@ -32,13 +34,18 @@ function criarCard(produto) {
         <div>
             <h2 class="titulo-lista">Produto: ${produto.nome}</h2>
             <p class="paragrafo-lista">Preço: R$ ${produto.preco.toFixed(2)}</p>
-            <p>Quantidade: ${produto.quantidade}</p>
+            <p class="quantidade-lista">Quantidade: ${produto.quantidade}</p>
         </div>
         <div class="botoes-card-lista">
             <button class="botao-concluir">Concluir</button> 
             <button class="botao-excluir">Excluir</button>
+            <button class="botao-editar">Editar</button>
         </div>
     </div>`
+
+    let titulo = li.querySelector('.titulo-lista')
+    let paragrafoPreco = li.querySelector('.paragrafo-lista')
+    let paragrafoQuantidade = li.querySelector('.quantidade-lista')
 
     let card = li.querySelector('.card-lista-de-compras')
     if(produto.concluido) {
@@ -72,9 +79,42 @@ function criarCard(produto) {
             JSON.stringify(produtos)
         )
 
+        totalGeral -= produto.preco * produto.quantidade
+        total.innerText = `Total: R$ ${totalGeral.toFixed(2)}`
+
         listaDeCompras.removeChild(li)
     })
+
+
+    //BOTÃO EDITAR
+    let botaoEditar = li.querySelector('.botao-editar')
+    botaoEditar.addEventListener('click', () => {
+        let subtotalAntigo = produto.preco * produto.quantidade
+
+        let novoNome = prompt('Novo nome:', produto.nome)
+        let novoPreco = Number(prompt('Novo preço:', produto.preco))
+        let novaQuantidade = Number(prompt('Nova quantidade:', produto.quantidade))
+
+        produto.nome = novoNome
+        produto.preco = novoPreco
+        produto.quantidade = novaQuantidade
+
+        localStorage.setItem(
+            'produtos',
+            JSON.stringify(produtos)
+        )
+
+        titulo.innerText = `Produto: ${produto.nome}`
+        paragrafoPreco.innerText = `Preço: R$ ${produto.preco.toFixed(2)}`
+        paragrafoQuantidade.innerText = `Quantidade: ${produto.quantidade}`
+
+        let subtotalNovo = produto.preco * produto.quantidade
+        totalGeral = totalGeral - subtotalAntigo + subtotalNovo
+        total.innerText = `Total: R$ ${totalGeral.toFixed(2)}`
+    })
 }
+
+
 
 botaoAdiconar.addEventListener('click', () => {
     let nomeDigitado = nome.value

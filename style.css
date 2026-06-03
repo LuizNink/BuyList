@@ -115,7 +115,7 @@ main > h1{
     width: 80px;
     height: 35px;
     padding: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     cursor: pointer;
 }
 
@@ -136,8 +136,21 @@ main > h1{
     width: 80px;
     height: 35px;
     padding: 5px;
+    margin-bottom: 8px;
     cursor: pointer;
 }
+
+.botao-editar{
+    background-color: #F69F00;
+    color: black;
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 5px;
+    width: 80px;
+    height: 35px;
+    padding: 5px;
+    cursor: pointer;
+}
+
 
 
 /*FOOTER*/
