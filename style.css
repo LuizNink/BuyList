@@ -215,4 +215,54 @@ main > h1{
         margin-top: 1rem;
         width: 22rem;
     }
+
+
+    /*LISTA DE COMPRAS*/
+    main{
+        margin-bottom: 120px;
+    }
+
+    main > h1{
+        margin: 3rem 0 1rem 1.4rem;
+    }
+
+    #lista-de-compras{
+        margin-left: 1.4rem;
+    }
+
+    .card-lista-de-compras{
+        margin-right: 1rem;
+        padding: 1rem 1.5rem 1rem 1.3rem;
+    }
+
+    .titulo-lista{
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .botao-concluir{
+        width: 70px;
+        height: 28px;
+        margin-bottom: 8px;
+        font-size: 12px;
+    }
+
+    .botao-excluir{
+        width: 70px;
+        height: 28px;
+        margin-bottom: 8px;
+        font-size: 12px;
+    }
+
+    .botao-editar{
+        width: 70px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+
+    /*FOOTER*/
+    #footer{
+        padding: 5px;
+    }
 }

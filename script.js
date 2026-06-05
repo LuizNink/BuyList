@@ -32,7 +32,7 @@ function criarCard(produto) {
     li.innerHTML = 
     `<div class="card-lista-de-compras">
         <div>
-            <h2 class="titulo-lista">Produto: ${produto.nome}</h2>
+            <h2 class="titulo-lista">${produto.nome}</h2>
             <p class="paragrafo-lista">Preço: R$ ${produto.preco.toFixed(2)}</p>
             <p class="quantidade-lista">Quantidade: ${produto.quantidade}</p>
         </div>
